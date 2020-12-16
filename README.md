@@ -1,5 +1,5 @@
 ## A Metric for Differential Chromatic Refraction in the Context of the Legacy Survey of Space and Time
-Weixiang Yu (Drexel University), Gordon T. Richards (Drexel University), Peter Yoachim (University of Washington)
+Weixiang Yu (Drexel University), Gordon T. Richards (Drexel University), Peter Yoachim (University of Washington), Christina Peters (University of Delaware)
 
 10 December 2020
 
