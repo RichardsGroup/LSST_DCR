@@ -10,7 +10,7 @@ import lsst.sims.maf.stackers as stackers
 from lsst.sims.maf.stackers import BaseStacker
 import lsst.sims.maf.plots as plots
 import lsst.sims.maf.metricBundles as metricBundles
-from AGNMetrics import DCR_Precision
+from AGNMetrics import DCRPrecisionMetric
 
 # import convenience functions
 from opsimUtils import *
@@ -70,7 +70,7 @@ def run_fbs(version, dbDir, outDir, metricDataPath):
     for gmag in [20, 22, 24]:
 
         # declare metric, slicer and sql contraint
-        DCR_metricG = DCR_Precision('g', src_mag=gmag)
+        DCR_metricG = DCRPrecisionMetric('g', src_mag=gmag)
         slicer = slicers.HealpixSlicer(nside=64)
         constraintG = 'filter = "g"'
         constraintG += ' and note not like "DD%"'
@@ -82,7 +82,7 @@ def run_fbs(version, dbDir, outDir, metricDataPath):
         DCR_mbG.setSummaryMetrics(summaryMetrics)
 
         # declare u band metric
-        DCR_metricU = DCR_Precision('u', src_mag=gmag+0.15)
+        DCR_metricU = DCRPrecisionMetric('u', src_mag=gmag+0.15)
         constraintU = 'filter = "u"'
         constraintU += ' and note not like "DD%"'
         constraintU += ' and proposalId = 1'
