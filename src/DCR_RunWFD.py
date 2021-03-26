@@ -106,11 +106,11 @@ def run_fbs(version, dbDir, outDir, metricDataPath):
     # check failed 
     failed_runs = [x for x in rt if len(x) > 0]
 
-    with open(f'v{version}.log', 'a') as f:
+    with open(f'v{version}_DDF.log', 'a') as f:
         for run in failed_runs:
             f.write(run+'\n')
 
-#     notify.send(f"Done with FBS_v{version}!")
+    notify.send(f"Done with FBS_v{version}!")
     
     
 if __name__ == "__main__":

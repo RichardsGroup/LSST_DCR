@@ -2,7 +2,7 @@ import numpy as np
 from lsst.sims.maf.metrics import BaseMetric
 from lsst.sims.maf.utils.astrometryUtils import m52snr, astrom_precision
 
-class DCR_Precision(BaseMetric):
+class DCRPrecisionMetric(BaseMetric):
     """This metric trys to quantify how well the DCR effect can be contrained/measured."""
     
     def __init__(self, band, src_mag=22, seeingCol='seeingFwhmGeom', m5Col='fiveSigmaDepth',
@@ -19,7 +19,7 @@ class DCR_Precision(BaseMetric):
         self.metricName = f'DCR_{src_mag}_{self.band}'
         
         cols=['airmass', self.filterCol, self.m5Col, self.PACol, self.seeingCol]
-        super(DCR_Precision, self).__init__(col=cols, metricName=self.metricName, **kwargs)
+        super(DCRPrecisionMetric, self).__init__(col=cols, metricName=self.metricName, **kwargs)
         
     def run(self, dataSlice, slicePoint=None):
         
