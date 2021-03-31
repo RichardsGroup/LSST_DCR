@@ -5,7 +5,6 @@ barebones_nexp2_v1.6_10yrs
 barebones_v1.6_10yrs
 baseline_2snaps_v1.5_10yrs
 baseline_nexp1_v1.6_10yrs
-baseline_nexp1_v1.7_10yrs
 baseline_nexp2_scaleddown_v1.6_10yrs
 baseline_nexp2_v1.6_10yrs
 baseline_nexp2_v1.7_10yrs
