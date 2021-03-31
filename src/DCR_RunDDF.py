@@ -53,7 +53,7 @@ def run_sf_ddf(run, src_mags, dbDir, outDir, metricDataPath, **kwargs):
         bundleDict = {}
 
         # shared configs
-        slicer = slicers.HealpixSlicer(nside=256)
+        slicer = slicers.HealpixSlicer(nside=128)
         base_constraint = 'filter = "{}"'
         summaryMetrics = [metrics.MedianMetric(), metrics.MeanMetric(), metrics.RmsMetric(),
                           metrics.PercentileMetric(percentile=25, metricName='p25'),
@@ -122,16 +122,26 @@ def run_fbs(version, dbDir, outDir, metricDataPath):
     dbRuns = show_opsims(dbDir)[:]
     
     # define metric parameters for DDF
-    src_mags = {'u': [24.15, 22.15, 20.15], 'g': [24, 22, 20]}
+    src_mags = {'u': [24.15, 22.15], 'g': [24, 22]}
 
     # placeholder for joblib returned result
     rt = []
-    rt = Parallel(n_jobs=15)(delayed(run_sf_ddf)(run, src_mags, dbDir, 
+    rt = Parallel(n_jobs=14)(delayed(run_sf_ddf)(run, src_mags, dbDir, 
                                                  outDir, metricDataPath)
                              for run in dbRuns)
 
     # check failed 
     failed_runs = [x for x in rt if len(x) > 0]
+    
+    # rerun failed ones caused sql I/O error
+    for run in failed_runs:
+        print(f'Rerun failed: {run}')
+        print('-------------------------------------')
+        try:
+            run_sf_ddf(run, src_mags, dbDir, outDir, metricDataPath)
+            failed_runs.remove(run)
+        except:
+            continue
     
     if len(failed_runs) > 0:
         with open(f'v{version}_DDF.log', 'a') as f:
