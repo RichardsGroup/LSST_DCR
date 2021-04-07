@@ -122,7 +122,7 @@ def run_fbs(version, dbDir, outDir, metricDataPath):
     dbRuns = show_opsims(dbDir)[:]
     
     # define metric parameters for DDF
-    src_mags = {'u': [24.15, 22.15], 'g': [24, 22]}
+    src_mags = {'u': [22.15], 'g': [22]}
 
     # placeholder for joblib returned result
     rt = []
