@@ -13,3 +13,8 @@ We provide a code repository for computing a metric to investigate how measureme
 2. Sent an email to us (Weixiang Yu or Gordon T. Richards) to request access to the simulation volume.
 3. Setup up a container to run LSST simulation package following the instructions provided [here](https://github.com/RichardsGroup/LSST_OpSim).
 4. Pull the current repo into your persistent space and run the notebooks (in the notebooks folder) following the given order (00->01->02). 
+
+<br>
+
+### LSST SCOC cadence note:
+Additional work (code, notebooks, etc.) associated with "LSST AGN SC Cadence Note: Differential Chromatic Refraction" are included in the _cadence-notes_ branch.
