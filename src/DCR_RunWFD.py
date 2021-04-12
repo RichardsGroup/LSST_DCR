@@ -1,3 +1,6 @@
+"""
+Run DCR Precision Metric in the WFD survey on all opsim using SciServer.
+"""
 import pandas as pd
 import numpy as np
 import os, sys

@@ -1,3 +1,6 @@
+"""
+DCR Precision Metric.
+"""
 import numpy as np
 from lsst.sims.maf.metrics import BaseMetric
 from lsst.sims.maf.utils.astrometryUtils import m52snr, astrom_precision
